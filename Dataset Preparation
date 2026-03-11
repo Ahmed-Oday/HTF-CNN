@@ -1,0 +1,14 @@
+data/
+└── affectnet/
+    ├── train_set/
+    │   ├── Neutral/      (class 0)
+    │   ├── Happy/        (class 1)
+    │   ├── Sad/          (class 2)
+    │   ├── Surprise/     (class 3)
+    │   ├── Fear/         (class 4)
+    │   ├── Disgust/      (class 5)
+    │   └── Anger/        (class 6)
+    └── val_set/
+        ├── Neutral/
+        ├── Happy/
+        └── ...

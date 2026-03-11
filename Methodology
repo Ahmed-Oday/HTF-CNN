@@ -1,0 +1,62 @@
+Data Preprocessing
+Image Resizing: All images resized to 224×224 pixels
+
+Data Augmentation:
+
+Random cropping (224→180→224)
+
+Random horizontal flip (p=0.5)
+
+Random rotation (±30 degrees)
+
+Random grayscale conversion (p=0.1)
+
+Color jittering
+
+Normalization: ImageNet statistics (mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
+
+Model Architecture
+Backbone: VGG16 pretrained on ImageNet (first 10 layers frozen)
+
+Classification Branch:
+
+3 fully connected layers (4096→1024→7)
+
+Dropout (0.5) for regularization
+
+Regression Branch:
+
+3 fully connected layers (4096→512→2)
+
+Tanh activation for [-1,1] range
+
+Training Strategy
+Loss Function: Weighted combination of Cross-Entropy (classification) and MSE (regression)
+
+Optimizer: Adam with initial LR=0.0001
+
+Learning Rate Schedule: Reduce on plateau (patience=5, factor=0.5)
+
+Early Stopping: Patience of 10 epochs
+
+Batch Size: 32
+
+Epochs: 50 (with early stopping)
+
+Results
+Metric	Value
+Classification Accuracy	62.3%
+Valence MSE	0.042
+Valence MAE	0.156
+Arousal MSE	0.038
+Arousal MAE	0.148
+Limitations
+Dataset Bias: AffectNet primarily contains posed expressions
+
+Class Imbalance: Some emotions (Disgust) have fewer samples
+
+Subject Independence: Limited cross-dataset validation
+
+Computational Cost: VGG16 backbone is computationally intensive
+
+Real-world Performance: May not generalize to in-the-wild scenarios

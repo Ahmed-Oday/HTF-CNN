@@ -1,0 +1,32 @@
+1. Configure paths
+Edit config.py to set your data paths:
+
+config.train_folder = '/path/to/your/train_set'
+config.val_folder = '/path/to/your/val_set'
+
+2. Train the model
+
+# Train with default settings
+python train.py
+
+# Train with custom settings
+python train.py --epochs 50 --batch_size 32 --learning_rate 0.001
+
+3. Evaluate the model
+
+# Evaluate multi-task model
+python evaluate.py --mode multi_task --task both
+
+# Evaluate single model (classification only)
+python evaluate.py --mode single_model --task classification
+
+4. Make predictions on single image
+
+from inference import predict_image
+
+result = predict_image(
+    model_path='saved_models/best_model.pth',
+    image_path='path/to/image.jpg'
+)
+print(result)
+

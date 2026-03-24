@@ -14,12 +14,7 @@ This project uses three datasets:
    - 593 sequences from 123 subjects
    - 7 emotion labels
 
-2. **FER2013** (Facial Expression Recognition 2013)
-   - DOI/URL: https://www.kaggle.com/datasets/msambare/fer2013
-   - 35,887 grayscale images
-   - 7 emotion categories
-
-3. **AffectNet**
+2. **AffectNet**
    - DOI/URL: http://mohammadmahoor.com/affectnet/
    - ~450,000 images with 8 emotion labels
    - Valence-Arousal annotations
